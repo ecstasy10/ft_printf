@@ -1,26 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   select_print.c                                     :+:      :+:    :+:   */
+/*   pruebas.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hbarrius <hbarrius@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dbalboa- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/11 18:23:09 by hbarrius          #+#    #+#             */
-/*   Updated: 2019/12/11 21:01:43 by hbarrius         ###   ########.fr       */
+/*   Created: 2019/12/15 17:48:08 by marvin            #+#    #+#             */
+/*   Updated: 2019/12/16 16:43:20 by dbalboa-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
-#include <string.h>
+#include <stdio.h>
 
-t_tab   *select_print(t_tab *tab)
+int    main(void)
 {
-    char    ident;
-
-    ident = tab->flag_ident;
-    if (ident == 'd')
-        print_d(tab);
-    else if (ident == 's')
-        print_s(tab);
-    return (tab);
+    printf("numero %7.9d, y el otro %+d \n", -5, 6);
+    return (0);
 }

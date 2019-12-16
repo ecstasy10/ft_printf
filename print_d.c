@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   print_d.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hbarrius <hbarrius@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/12/11 18:29:42 by hbarrius          #+#    #+#             */
+/*   Updated: 2019/12/11 19:20:12 by hbarrius         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "ft_printf.h"
 #include <string.h>
@@ -38,6 +49,10 @@ void	ft_putnbr(int num)
 
 t_tab   *print_d(t_tab *tab)
 {
-    ft_putnbr((int)va_arg(tab->args, int));
+    int num;
+    
+    if (tab->flag_ident == 'd')
+        num = (int)(va_arg(tab->args, int));
+    ft_putnbr(num);
     return (tab);
 }

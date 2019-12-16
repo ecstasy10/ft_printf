@@ -3,13 +3,12 @@
 /*                                                        :::      ::::::::   */
 /*   print_s.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dbalboa- <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: hbarrius <hbarrius@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/13 20:31:19 by dbalboa-          #+#    #+#             */
-/*   Updated: 2019/12/13 20:31:50 by dbalboa-         ###   ########.fr       */
+/*   Created: 2019/12/11 20:44:38 by hbarrius          #+#    #+#             */
+/*   Updated: 2019/12/11 21:02:57 by hbarrius         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include "ft_printf.h"
 
@@ -28,8 +27,7 @@ void    ft_putstr(char *str)
 t_tab   *print_s(t_tab *tab)
 {
     char    *str;
-
-    str = NULL;
+    
     if (tab->flag_ident == 's')
         str = va_arg(tab->args, char *);
     ft_putstr(str);
