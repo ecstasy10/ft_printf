@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hbarrius <hbarrius@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dbalboa- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/11 15:58:33 by hbarrius          #+#    #+#             */
-/*   Updated: 2019/12/11 15:58:33 by hbarrius         ###   ########.fr       */
+/*   Updated: 2019/12/17 21:19:02 by dbalboa-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ int escribir(t_tab *tab)
         else
         {
             write(1, &tab->cpy[tab->i], 1);
+            tab->len++;
         }
         tab->i++;
     }
@@ -55,5 +56,7 @@ int     ft_printf(const char *format,...)
 
 int main(void)
 {
-    ft_printf("D: %d    I: %i     U:%u", 100, 200, -2);
+    printf("d:%-d\n", -1);
+    ft_printf("D:%-d\n", -1);
+    return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: dbalboa- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/05 18:33:51 by dbalboa-          #+#    #+#             */
-/*   Updated: 2019/11/19 20:10:13 by dbalboa-         ###   ########.fr       */
+/*   Updated: 2019/12/17 19:37:18 by dbalboa-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,5 +65,6 @@ void	ft_putendl_fd(char *s, int fd);
 
 char	*ft_strcpy(char *dest, char *src);
 char	*ft_strncpy(char *dst, const char *src, size_t n);
+char	*ft_strnew(size_t size);
 
 #endif

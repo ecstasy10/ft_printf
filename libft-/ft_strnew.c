@@ -1,29 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   searchprecision.c                                  :+:      :+:    :+:   */
+/*   ft_strnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dbalboa- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/15 19:03:11 by marvin            #+#    #+#             */
-/*   Updated: 2019/12/17 18:33:27 by dbalboa-         ###   ########.fr       */
+/*   Created: 2019/12/17 18:57:11 by dbalboa-          #+#    #+#             */
+/*   Updated: 2019/12/17 18:57:17 by dbalboa-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-t_tab   *searchprecision(t_tab *tab)
+char	*ft_strnew(size_t size)
 {
-    if (tab->trat[tab->i] == '.')
-    {
-        tab->i++;
-        tab->precision = 0;
-    }
-    while (tab->trat[tab->i] >= 0 && tab->trat[tab->i] <= 9)
-    {
-        tab->precision *= 10;
-        tab->precision += (tab->trat[tab->i] - 48);
-        tab->i++;
-    }
-    return (tab);
+	char	*str;
+
+	if (!(str = (char *)malloc(sizeof(char) * size + 1)))
+		return (NULL);
+	str[size] = '\0';
+	while (size--)
+		str[size] = '\0';
+	return (str);
 }

@@ -6,7 +6,7 @@
 /*   By: dbalboa- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/15 17:48:08 by marvin            #+#    #+#             */
-/*   Updated: 2019/12/16 16:43:20 by dbalboa-         ###   ########.fr       */
+/*   Updated: 2019/12/17 18:42:12 by dbalboa-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 int    main(void)
 {
-    //printf("numero %7.9d, y el otro %+d \n", -5, 6);
-    printf("printa usigned integer: %u", 1);
+    printf("numero %2.2d, y el otro %+d \n", -562, 6);
     return (0);
 }

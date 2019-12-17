@@ -27,6 +27,7 @@ typedef struct  s_tab
     int        len;
     int        i;
     int        precision;
+    int        wide;
     va_list    args;
     char       *cpy;
     char       *trat;
@@ -42,11 +43,14 @@ typedef struct  s_tab
 t_tab   *iniciar(t_tab *tab);
 int     escribir(t_tab *tab);
 int     ft_printf(const char *format,...);
+
 t_tab   *searchident(t_tab *tab);
 t_tab  *selectflag(t_tab *tab);
+
 int     tratar(t_tab *tab);
 t_tab   *select_print(t_tab *tab);
 t_tab   *reiniciar(t_tab *tab);
+
 t_tab   *searchprecision(t_tab *tab);
 t_tab   *searchwide(t_tab *tab);
 t_tab   *searchflag(t_tab *tab);
@@ -56,6 +60,8 @@ t_tab   *print_c(t_tab *tab);
 t_tab   *print_s(t_tab *tab);
 t_tab   *print_d(t_tab *tab);
 t_tab   *print_u(t_tab *tab);
+
+void	print_aux(t_tab *tab, char c, int len, int update_len);
 
 #endif
 

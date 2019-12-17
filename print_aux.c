@@ -1,29 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   searchprecision.c                                  :+:      :+:    :+:   */
+/*   print_aux.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dbalboa- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/15 19:03:11 by marvin            #+#    #+#             */
-/*   Updated: 2019/12/17 18:33:27 by dbalboa-         ###   ########.fr       */
+/*   Created: 2019/12/17 18:55:09 by dbalboa-          #+#    #+#             */
+/*   Updated: 2019/12/17 19:38:26 by dbalboa-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include "libft-/libft.h"
 
-t_tab   *searchprecision(t_tab *tab)
+void	print_aux(t_tab *tab, char c, int len, int update_len)
 {
-    if (tab->trat[tab->i] == '.')
-    {
-        tab->i++;
-        tab->precision = 0;
-    }
-    while (tab->trat[tab->i] >= 0 && tab->trat[tab->i] <= 9)
-    {
-        tab->precision *= 10;
-        tab->precision += (tab->trat[tab->i] - 48);
-        tab->i++;
-    }
-    return (tab);
+	char	*str;
+
+	if (len > 0)
+	{
+		if (update_len)
+			tab->len += len;
+		if (!(str = ft_strnew(len)))
+			exit(-1);
+		ft_memset(str, c, len);
+		write(1, str, len);
+		free(str);
+	}
 }
