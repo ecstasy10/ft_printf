@@ -14,6 +14,7 @@
 
 int    main(void)
 {
-    printf("numero %7.9d, y el otro %+d \n", -5, 6);
+    //printf("numero %7.9d, y el otro %+d \n", -5, 6);
+    printf("printa usigned integer: %u", 1);
     return (0);
 }

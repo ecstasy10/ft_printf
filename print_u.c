@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_d.c                                          :+:      :+:    :+:   */
+/*   print_s.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hbarrius <hbarrius@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/11 18:29:42 by hbarrius          #+#    #+#             */
-/*   Updated: 2019/12/11 19:20:12 by hbarrius         ###   ########.fr       */
+/*   Created: 2019/12/11 20:44:38 by hbarrius          #+#    #+#             */
+/*   Updated: 2019/12/11 21:02:57 by hbarrius         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,10 @@ static void	ft_putnbr(int num)
 {
 	int count;
 	int pot;
-	int negativo;
-
-	negativo = 45;
 	count = num;
 	pot = 1;
-	if (count < 0)
-	{
-		write(1, &negativo, 1);
-	}
+  if (count < 0)
+    count = count - 4294967295;
 	while (count > 9)
 	{
 		count = (count / 10);
@@ -47,38 +42,12 @@ static void	ft_putnbr(int num)
 	}
 }
 
-t_tab   *print_d(t_tab *tab)
+t_tab   *print_u(t_tab *tab)
 {
     int num;
     
-    if (tab->flag_ident == 'd' || tab->flag_ident == 'i')
-        num = (int)(va_arg(tab->args, int));
+    if (tab->flag_ident == 'u')
+        num = (unsigned int)(va_arg(tab->args, unsigned int));
     ft_putnbr(num);
     return (tab);
 }
-
-static int  get_tens(int num)
-{
-  int tens;
-
-  if (num < 0)
-    num *= -1;
-  while ((num/10) > 0)
-    tens++;
-  return(tens);
-}
-/*
-static  char  sign(t_tab *tab, int num)
-{
-  char *tmp
-
-  tmp = tab->flags;
-  if (num < 0)
-    return("-")
-  if (tmp[1] == 1)
-    return ("+")
-  if (tmp[2] == 1)
-    
-
-}
-*/

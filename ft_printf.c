@@ -55,5 +55,5 @@ int     ft_printf(const char *format,...)
 
 int main(void)
 {
-    ft_printf("num: %7.5d", 5);
+    ft_printf("D: %d    I: %i     U:%u", 100, 200, -2);
 }
