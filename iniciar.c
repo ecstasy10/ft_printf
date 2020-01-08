@@ -17,12 +17,12 @@ t_tab   *iniciar(t_tab *tab)
 {
     tab->len = 0;
     tab->i = 0;
-    tab->precision = 0;
+    tab->precision = -1;
     tab->wide = 0;
     tab->cpy = (char*)tab->format;
     tab->trat = (char*)tab->format;
     tab->searchident = "dsciu%";
-    tab->searchflag = "-+0 .";
+    tab->searchflag = "-+0 ";
     tab->flags[0] = 'a';
     tab->flags[1] = 'a';
     tab->flags[2] = 'a';

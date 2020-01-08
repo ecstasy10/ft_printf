@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   searchprecision.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dbalboa- <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: hbarrius <hbarrius@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/15 19:03:11 by marvin            #+#    #+#             */
-/*   Updated: 2019/12/17 18:33:27 by dbalboa-         ###   ########.fr       */
+/*   Updated: 2019/12/19 19:51:57 by hbarrius         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ t_tab   *searchprecision(t_tab *tab)
         tab->i++;
         tab->precision = 0;
     }
-    while (tab->trat[tab->i] >= 0 && tab->trat[tab->i] <= 9)
+    while (tab->trat[tab->i] >= '0' && tab->trat[tab->i] <= '9')
     {
         tab->precision *= 10;
         tab->precision += (tab->trat[tab->i] - 48);

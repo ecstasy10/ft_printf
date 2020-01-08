@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pruebas.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dbalboa- <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: hbarrius <hbarrius@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/15 17:48:08 by marvin            #+#    #+#             */
-/*   Updated: 2019/12/17 18:42:12 by dbalboa-         ###   ########.fr       */
+/*   Updated: 2019/12/17 23:03:02 by hbarrius         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,6 @@
 
 int    main(void)
 {
-    printf("numero %2.2d, y el otro %+d \n", -562, 6);
+    printf("numero %#X", 122312);
     return (0);
 }

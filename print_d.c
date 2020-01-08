@@ -55,14 +55,20 @@ static t_tab	*logic_d(t_tab *tab, int num, int num_len, int align_left)
 		not_blank++;
 	tab->len += (not_blank <= tab->wide) ? tab->wide : not_blank;
 	//printf("\n\nresta: %d\n\n", (num_len - not_blank));
-	if (!align_left)
-		print_aux(tab, ' ', num_len - not_blank, 0);
+	
+
+	if (!align_left && (tab->flags[2] != '0' || tab->precision >= 0 ))
+		print_aux(tab, ' ', tab->wide - not_blank, 0);
+	else if (tab->flags[2] == '0' && tab->precision < 0)
+		print_aux(tab, '0', tab->wide - not_blank, 0);
 	if (sign)
 		write(1, &sign, 1);
+	//if (tab->flags[2] == '0')
+	//	print_aux(tab, '0', tab->wide - not_blank, 0);
 	print_aux(tab, '0', tab->precision - num_len, 0);
 	ft_putnbr_fd(num, 1);
-	if (align_left)
-		print_aux(tab, ' ', tab->len - not_blank, 0);
+	if (align_left && tab->flags[2] != '0')
+		print_aux(tab, ' ', tab->wide - not_blank, 0);
 	return (tab);
 }
 
