@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hbarrius <hbarrius@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dbalboa- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/11 15:58:33 by hbarrius          #+#    #+#             */
-/*   Updated: 2019/12/19 19:44:55 by hbarrius         ###   ########.fr       */
+/*   Updated: 2020/01/08 15:43:47 by dbalboa-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,8 @@ int     ft_printf(const char *format,...)
         tab->len = escribir(tab);
         va_end(tab->args);
     }
-    printf("\nwide: %d \n", tab->wide);
-    printf("\npre: %d \n",tab->precision);
+    //printf("\nwide: %d \n", tab->wide);
+    //printf("\npre: %d \n",tab->precision);
     free(tab);
     return(tab->len);
 }
@@ -59,28 +59,8 @@ int     ft_printf(const char *format,...)
 int main(void)
 {
     printf("####################################\n");
-    printf("d:%8dk\n", 2);
-    ft_printf("D:%8dk\n\n", 2);
-
-printf("####################################\n");
-    printf("d:%8.4dk\n", 2);
-    ft_printf("D:%8.4dk\n\n", 2);
-
-printf("####################################\n");
-    printf("d:%8.dk\n", 2);
-    ft_printf("D:%8.dk\n\n", 2);
-
-printf("####################################\n");
-    printf("d:%08.4dk\n", 2);
-    ft_printf("D:%08.4dk\n\n", 2);
-
-    printf("####################################\n");
-    printf("d:%08dk\n", 2);
-    ft_printf("D:%08dk\n\n", 2);
-
-    printf("####################################\n");
-    printf("d:%08.dk\n", 2);
-    ft_printf("D:%08.dk\n\n", 2);
+    printf("s:%s\n", "holaa");
+    ft_printf("S:%s\n", "holaa");
 
     return (0);
 }
