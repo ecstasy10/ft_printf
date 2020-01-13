@@ -6,7 +6,7 @@
 /*   By: dbalboa- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/05 18:33:51 by dbalboa-          #+#    #+#             */
-/*   Updated: 2020/01/13 19:06:12 by dbalboa-         ###   ########.fr       */
+/*   Updated: 2020/01/13 20:46:42 by dbalboa-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,6 @@ void	ft_putendl_fd(char *s, int fd);
 char	*ft_strcpy(char *dest, char *src);
 char	*ft_strncpy(char *dst, const char *src, size_t n);
 char	*ft_strnew(size_t size);
-char	*ft_itoa_base(int value, int base);
+char	*ft_itoa_base(uintmax_t num, uintmax_t base, char c);
 
 #endif

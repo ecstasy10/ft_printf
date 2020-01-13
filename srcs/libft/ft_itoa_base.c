@@ -6,44 +6,78 @@
 /*   By: dbalboa- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/09 19:44:23 by hbarrius          #+#    #+#             */
-/*   Updated: 2020/01/13 19:13:05 by dbalboa-         ###   ########.fr       */
+/*   Updated: 2020/01/13 20:45:12 by dbalboa-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "libft.h"
 
-int		ft_pow(int nb, int pow)
+/*
+** 'A' or 'a' should be passed to c to indicate uper or lower case
+*/
+
+static char	ft_calculate_char(int mod, char c)
 {
-	if (pow == 0)
-		return (1);
-	else
-		return (nb * ft_pow(nb, pow - 1));
+	char	return_char;
+
+	if (mod > 36)
+		return (0);
+	return_char = '0';
+	while (mod--)
+	{
+		return_char++;
+		if (return_char == ':')
+			return_char = c;
+	}
+	return (return_char);
 }
 
-char	*ft_itoa_base(int value, int base)
+static int	ft_get_len(uintmax_t num, uintmax_t base)
 {
-	int		i;
-	char	*nbr;
-	int		neg;
+	int		len;
 
-	i = 1;
-	neg = 0;
-	if (value < 0)
+	len = 0;
+	while (num)
 	{
-		if (base == 10)
-			neg = 1;
-		value *= -1;
+		num /= base;
+		len++;
 	}
-	while (ft_pow(base, i) - 1 < value)
-		i++;
-	nbr = (char*)malloc(sizeof(nbr) * i);
-	nbr[i + neg] = '\0';
-	while (i-- > 0)
+	return (len);
+}
+
+static char	*ft_generate_string(uintmax_t num, uintmax_t base, char c)
+{
+	uintmax_t	sum;
+	int			mod;
+	int			len;
+	int			i;
+	char		*str;
+
+	if (num == 0)
 	{
-		nbr[i + neg] = (value % base) + (value % base > 9 ? 'a' - 10 : '0');
-		value = value / base;
+		if (!(str = ft_strnew(1)))
+			return (NULL);
+		*str = '0';
+		return (str);
 	}
-	if (neg)
-		nbr[0] = '-';
-	return (nbr);
+	sum = num;
+	i = 0;
+	len = ft_get_len(num, base);
+	if (!(str = ft_strnew(len)))
+		return (NULL);
+	while (sum)
+	{
+		mod = sum % base;
+		sum /= base;
+		str[(len--) - 1] = ft_calculate_char(mod, c);
+	}
+	return (str);
+}
+
+char		*ft_itoa_base(uintmax_t num, uintmax_t base, char c)
+{
+	char	*str;
+
+	str = ft_generate_string(num, base, c);
+	return (str);
 }

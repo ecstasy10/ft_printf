@@ -6,7 +6,7 @@
 /*   By: dbalboa- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/09 18:15:35 by hbarrius          #+#    #+#             */
-/*   Updated: 2020/01/13 19:22:44 by dbalboa-         ###   ########.fr       */
+/*   Updated: 2020/01/13 21:09:15 by dbalboa-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,10 @@ static t_tab    *logic_x(t_tab *tab, int num, char *str, int align)
     if(!align)
         print_aux(tab, ' ', tab->wide - num_b, 0);
     hashtag(num, tab->flags[4], tab->flag_ident);
-    print_aux(tab, '0', tab->precision - num_w, 0);
+    if (tab->flags[2] == '0' && tab->precision < 0)
+        print_aux(tab, '0', tab->wide - num_b, 0);
+    else
+        print_aux(tab, '0', tab->precision - num_w, 0);
     ft_putstr_fd(str, 1);
     if(align)
         print_aux(tab, ' ', tab->wide - num_b, 0);
@@ -72,10 +75,10 @@ t_tab   *print_x(t_tab *tab)
         print_aux(tab, ' ', tab->wide, 1);
         return (tab);
     }
-    c = 'a';
+    c = 'A';
     if (tab->flag_ident == 'x')
-        c = 'A';
-    if (!(str = ft_itoa_base(num, 16)))
+        c = 'a';
+    if (!(str = ft_itoa_base(num, 16, c)))
         exit(-1);
     if (tab->flags[0] == '-')
         align = 1;
