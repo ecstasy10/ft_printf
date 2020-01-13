@@ -6,7 +6,7 @@
 #    By: dbalboa- <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/01/09 19:51:55 by dbalboa-          #+#    #+#              #
-#    Updated: 2020/01/09 20:05:22 by dbalboa-         ###   ########.fr        #
+#    Updated: 2020/01/13 19:04:54 by dbalboa-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,6 +35,7 @@ CFILE =		ft_printf.c \
 			print_d.c \
 			print_s.c \
 			print_u.c \
+			print_x.c \
 			print_aux.c \
 			ft_printf.h \
 

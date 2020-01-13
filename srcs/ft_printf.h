@@ -60,6 +60,7 @@ t_tab   *print_c(t_tab *tab);
 t_tab   *print_s(t_tab *tab);
 t_tab   *print_d(t_tab *tab);
 t_tab   *print_u(t_tab *tab);
+t_tab   *print_x(t_tab *tab);
 
 void	print_aux(t_tab *tab, char c, int len, int update_len);
 
