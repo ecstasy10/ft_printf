@@ -12,7 +12,7 @@
 
 #include "ft_printf.h"
 #include <string.h>
-/*
+
 static int			get_tens(int num)
 {
 	int tens;
@@ -23,19 +23,34 @@ static int			get_tens(int num)
 	return (tens);
 }
 
-t_tab		*print_u(t_tab *tab)
+static t_tab		*logic_u(t_tab *tab, int num, int length, int flag)
+{
+	int			not_blank;
+
+	not_blank = length;
+	if (length <= tab->precision)
+		not_blank = tab->precision;
+	tab->len += (not_blank <= )
+}
+
+t_tab				*print_u(t_tab *tab)
 {
 	int		length;
 	int		flag;
 	int		num;
 
-	num = (unsigned int)(va_arg(tab->args, unsigned int));
 	flag = 0;
-	if (tab->precision == 0)
+	num = (unsigned int)(va_arg(tab->args, unsigned int));
+	if (num == 0 && tab->precision == 0)
 	{
-	//	display_gap(tab, ' ', tab->wide, 1);
+		display_gap(tab, ' ', tab->wide, 1);
 		return (tab);
 	}
-	//length = get_tens();
+	length = get_tens(num);
+	if (tab->flags[0] == '-')
+		flag = 1;
+	if (tab->flags[2] == '0' && tab->precision == -1 && !tab->flags[0])
+		tab->precision = tab->wide;
+	logic_u(tab, num, length, flag);
+	return (tab);
 }
-*/

@@ -59,7 +59,7 @@ int     ft_printf(const char *format, ...)
  *
  * %c = HECHO
  * %s = HECHO
- * %p =
+ * %p = 
  * %d = HECHO
  * %i = HECHO
  * %u = HECHO
