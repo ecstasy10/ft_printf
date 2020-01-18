@@ -67,8 +67,8 @@ int     ft_printf(const char *format, ...)
  * %X =
  *
  */
-
 /*
+
 int main(void)
 {
     printf("####################################\n");
