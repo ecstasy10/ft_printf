@@ -21,7 +21,7 @@ t_tab   *iniciar(t_tab *tab)
     tab->wide = 0;
     tab->cpy = (char*)tab->format;
     tab->trat = (char*)tab->format;
-    tab->searchident = "dsciux%";
+    tab->searchident = "dsciuxXp%";
     tab->searchflag = "-+0 ";
     tab->flags[0] = 'a';
     tab->flags[1] = 'a';

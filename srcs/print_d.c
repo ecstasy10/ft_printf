@@ -54,18 +54,15 @@ static t_tab	*logic_d(t_tab *tab, int num, int num_len, int align_left)
 	if (sign)
 		not_blank++;
 	tab->len += (not_blank <= tab->wide) ? tab->wide : not_blank;
-	//printf("\n\nresta: %d\n\n", (num_len - not_blank));
 	if (!align_left && (tab->flags[2] != '0' || tab->precision >= 0 ))
 		print_aux(tab, ' ', tab->wide - not_blank, 0);
-	else if (tab->flags[2] == '0' && tab->precision < 0)
-		print_aux(tab, '0', tab->wide - not_blank, 0);
 	if (sign)
 		write(1, &sign, 1);
-	//if (tab->flags[2] == '0')
-	//	print_aux(tab, '0', tab->wide - not_blank, 0);
+	if (tab->flags[2] == '0' && tab->precision < 0)
+		print_aux(tab, '0', tab->wide - not_blank, 0);
 	print_aux(tab, '0', tab->precision - num_len, 0);
 	ft_putnbr_fd(num, 1);
-	if (align_left && tab->flags[2] != '0')
+	if (align_left && (tab->flags[2] != '0' || tab->precision >= 0 ))
 		print_aux(tab, ' ', tab->wide - not_blank, 0);
 	return (tab);
 }
@@ -77,6 +74,16 @@ t_tab   *print_d(t_tab *tab)
 	int	align_left;
 
 	num = (int)(va_arg(tab->args, int));
+	num = (intmax_t)num;
+	if (num == 0 && tab->precision == 0)
+	{
+		if (tab->flags[1] == '+')
+			write(1, "+", 1);
+		if (tab->flags[3] == ' ')
+			write(1, " ", 1);
+		print_aux(tab, ' ', tab->wide, 1);
+		return (tab);
+	}
 	num_len = get_tens(num);
 	align_left = (tab->flags[0] == '-') ? 1 : 0;
 	if (tab->flags[2] == 1 && tab->precision == 0)
@@ -85,7 +92,6 @@ t_tab   *print_d(t_tab *tab)
 		if (num < 0 || tab->flags[3] || tab->flags[1] || tab->flags[0])
 			tab->precision--;
 	}
-	//printf("\nwide: %d\n", tab->wide);
 	logic_d(tab, num, num_len, align_left);
 	return (tab);
 }

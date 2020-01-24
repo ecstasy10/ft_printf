@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   print_x.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dbalboa- <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: hbarrius <hbarrius@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/09 18:15:35 by hbarrius          #+#    #+#             */
-/*   Updated: 2020/01/13 21:09:15 by dbalboa-         ###   ########.fr       */
+/*   Updated: 2020/01/21 20:17:55 by hbarrius         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,9 @@ static t_tab    *logic_x(t_tab *tab, int num, char *str, int align)
     }
     num_b = (num_w <= tab->precision && tab->precision > 0) ? tab->precision : num_w;
     tab->len += (num_b <= tab->wide) ? tab->wide : num_b;
-    if(!align)
+    if(!align && tab->precision != -1)
+        print_aux(tab, ' ', tab->wide - num_b, 0);
+    else if (tab->flags[2] != '0' && !align)
         print_aux(tab, ' ', tab->wide - num_b, 0);
     hashtag(num, tab->flags[4], tab->flag_ident);
     if (tab->flags[2] == '0' && tab->precision < 0)
@@ -75,9 +77,9 @@ t_tab   *print_x(t_tab *tab)
         print_aux(tab, ' ', tab->wide, 1);
         return (tab);
     }
-    c = 'A';
-    if (tab->flag_ident == 'x')
-        c = 'a';
+    c = 'a';
+    if (tab->flag_ident == 'X')
+        c = 'A';
     if (!(str = ft_itoa_base(num, 16, c)))
         exit(-1);
     if (tab->flags[0] == '-')
