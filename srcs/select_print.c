@@ -27,6 +27,8 @@ t_tab   *select_print(t_tab *tab)
         print_x(tab);
     else if (ident == 'u')
         print_u(tab);
+    else if (ident == 'p')
+        print_p(tab);
     else if (ident == '%')
     {
         print_aux(tab, '%', 1, 0);

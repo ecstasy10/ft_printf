@@ -36,6 +36,7 @@ CFILE =		ft_printf.c \
 			print_s.c \
 			print_u.c \
 			print_x.c \
+			print_p.c \
 			print_aux.c \
 			ft_printf.h \
 
