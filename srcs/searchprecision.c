@@ -19,6 +19,13 @@ t_tab   *searchprecision(t_tab *tab)
         tab->i++;
         tab->precision = 0;
     }
+    if (tab->trat[tab->i] == '*')
+    {
+        tab->precision = (int)(va_arg(tab->args, int));
+        if (tab->precision < 0)
+            tab->precision = -1;
+        tab->i++;
+    }
     while (tab->trat[tab->i] >= '0' && tab->trat[tab->i] <= '9')
     {
         tab->precision *= 10;

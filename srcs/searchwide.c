@@ -14,6 +14,17 @@
 
 t_tab   *searchwide(t_tab *tab)
 {
+    if (tab->trat[tab->i] == '*')
+    {
+        tab->wide = (int)(va_arg(tab->args, int));
+        if (tab->wide <= 0)
+        {
+            tab->wide *= -1;
+            tab->flags[0] = '-';
+            tab->flags[2] = 'a';
+        }
+        tab->i++;
+    }
     while (tab->trat[tab->i] >= '0' && tab->trat[tab->i] <= '9')
     {
         tab->wide *= 10;
