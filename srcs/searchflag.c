@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   searchflag.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hbarrius <hbarrius@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dbalboa- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/13 20:35:17 by marvin            #+#    #+#             */
-/*   Updated: 2020/01/21 20:37:19 by hbarrius         ###   ########.fr       */
+/*   Created: 2020/01/28 21:11:31 by dbalboa-          #+#    #+#             */
+/*   Updated: 2020/01/28 21:11:36 by dbalboa-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-t_tab   *searchflag(t_tab *tab)
+t_tab		*searchflag(t_tab *tab)
 {
-    size_t	i;
+	size_t	i;
 
 	i = 0;
 	while (tab->searchflag[i] != '\0')

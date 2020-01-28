@@ -3,27 +3,25 @@
 /*                                                        :::      ::::::::   */
 /*   searchident.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hbarrius <hbarrius@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dbalboa- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/11 17:03:55 by hbarrius          #+#    #+#             */
-/*   Updated: 2019/12/11 19:20:24 by hbarrius         ###   ########.fr       */
+/*   Created: 2020/01/28 21:11:56 by dbalboa-          #+#    #+#             */
+/*   Updated: 2020/01/28 21:12:19 by dbalboa-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-t_tab   *searchident(t_tab *tab)
+t_tab			*searchident(t_tab *tab)
 {
-    size_t  i;
+	size_t		i;
 
-    i = 0;
-    while (tab->searchident[i] != '\0')
-    {
-        //printf("\n%c\n", tab->flag_ident);
-        if(tab->searchident[i] == tab->trat[tab->i])
-            tab->flag_ident = tab->searchident[i];
-        i++;
-    }
-    //printf("\n%d", tab->i);
-    return (tab);
+	i = 0;
+	while (tab->searchident[i] != '\0')
+	{
+		if (tab->searchident[i] == tab->trat[tab->i])
+			tab->flag_ident = tab->searchident[i];
+		i++;
+	}
+	return (tab);
 }
