@@ -6,7 +6,7 @@
 /*   By: dbalboa- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/28 20:39:58 by dbalboa-          #+#    #+#             */
-/*   Updated: 2020/01/28 20:41:22 by dbalboa-         ###   ########.fr       */
+/*   Updated: 2020/01/28 23:24:15 by dbalboa-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,12 +86,6 @@ t_tab			*print_d(t_tab *tab)
 	num_len = get_tens(num);
 	(num > INT32_MAX || num <= INT32_MIN) ? num_len++ : num_len;
 	align_left = (tab->flags[0] == '-') ? 1 : 0;
-	if (tab->flags[2] == 1 && tab->precision == 0)
-	{
-		tab->precision = tab->wide;
-		if (num < 0 || tab->flags[3] || tab->flags[1] || tab->flags[0])
-			tab->precision--;
-	}
 	logic_d(tab, num, num_len, align_left);
 	return (tab);
 }
