@@ -6,7 +6,7 @@
 /*   By: dbalboa- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/28 20:42:26 by dbalboa-          #+#    #+#             */
-/*   Updated: 2020/01/28 20:42:57 by dbalboa-         ###   ########.fr       */
+/*   Updated: 2020/01/30 20:08:45 by dbalboa-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ t_tab		*print_s(t_tab *tab)
 	int		i;
 	size_t	len;
 
-	str = va_arg(tab->args, char *);
+	str = (char *)va_arg(tab->args, char *);
 	i = 0;
 	if (tab->precision > -1 && str)
 		str = ft_strndup(str, tab->precision);

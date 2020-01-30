@@ -6,7 +6,7 @@
 /*   By: dbalboa- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/28 20:39:58 by dbalboa-          #+#    #+#             */
-/*   Updated: 2020/01/28 23:24:15 by dbalboa-         ###   ########.fr       */
+/*   Updated: 2020/01/30 20:13:38 by dbalboa-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,16 +39,32 @@ static char		get_sign(t_tab *tab, int is_neg)
 	return ('\0');
 }
 
+static void		ft_putnbrintmax_fd(long int nb, int fd)
+{
+	long int	nbr;
+
+	if (nb < 0)
+	{
+		ft_putchar_fd('-', fd);
+		nbr = (long int)(nb * -1);
+	}
+	else
+		nbr = (long int)nb;
+	if (nbr >= 10)
+		ft_putnbr_fd(nbr / 10, fd);
+	ft_putchar_fd((char)(nbr % 10 + 48), fd);
+}
+
 static t_tab	*logic_d(t_tab *tab, long int num, int num_len, int align_left)
 {
 	int		not_blank;
 	char	sign;
 	int		is_negative;
 
-	is_negative = (num < 0 && num != INT32_MAX && num != INT32_MIN) ? 1 : 0;
+	is_negative = (num < 0) ? 1 : 0;
+	not_blank = num_len;
 	num *= (is_negative) ? -1 : 1;
 	sign = get_sign(tab, is_negative);
-	not_blank = num_len;
 	if (num_len <= tab->precision && tab->precision >= 0)
 		not_blank = tab->precision;
 	if (sign)
@@ -58,11 +74,11 @@ static t_tab	*logic_d(t_tab *tab, long int num, int num_len, int align_left)
 		print_aux(tab, ' ', tab->wide - not_blank, 0);
 	if (sign)
 		write(1, &sign, 1);
-	if (tab->flags[2] == '0' && tab->precision < 0)
+	if (tab->flags[2] == '0' && tab->precision < 0 && tab->flags[0] != '-')
 		print_aux(tab, '0', tab->wide - not_blank, 0);
 	print_aux(tab, '0', tab->precision - num_len, 0);
-	ft_putnbr_fd(num, 1);
-	if (align_left && (tab->flags[2] != '0' || tab->precision >= 0))
+	ft_putnbrintmax_fd(num, 1);
+	if (align_left)
 		print_aux(tab, ' ', tab->wide - not_blank, 0);
 	return (tab);
 }
@@ -73,7 +89,7 @@ t_tab			*print_d(t_tab *tab)
 	long int	num_len;
 	int			align_left;
 
-	num = (long int)(va_arg(tab->args, long int));
+	num = (long int)(va_arg(tab->args, int));
 	if (num == 0 && tab->precision == 0)
 	{
 		if (tab->flags[1] == '+')
@@ -84,7 +100,7 @@ t_tab			*print_d(t_tab *tab)
 		return (tab);
 	}
 	num_len = get_tens(num);
-	(num > INT32_MAX || num <= INT32_MIN) ? num_len++ : num_len;
+	(num > INT32_MAX) ? num_len++ : num_len;
 	align_left = (tab->flags[0] == '-') ? 1 : 0;
 	logic_d(tab, num, num_len, align_left);
 	return (tab);

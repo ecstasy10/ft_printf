@@ -6,7 +6,7 @@
 /*   By: dbalboa- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/11 20:44:38 by hbarrius          #+#    #+#             */
-/*   Updated: 2020/01/30 17:13:07 by dbalboa-         ###   ########.fr       */
+/*   Updated: 2020/01/30 20:09:52 by dbalboa-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,7 @@ static int			get_tens(unsigned int num)
 	return (tens);
 }
 
-
-void	ft_putuns_fd(unsigned int nb, int fd)
+void				ft_putuns_fd(unsigned int nb, int fd)
 {
 	unsigned int	nbr;
 
@@ -39,7 +38,6 @@ void	ft_putuns_fd(unsigned int nb, int fd)
 		ft_putnbr_fd(nbr / 10, fd);
 	ft_putchar_fd((char)(nbr % 10 + 48), fd);
 }
-
 
 static t_tab		*logic_u(t_tab *tab, unsigned int num, int length, int flag)
 {
@@ -62,9 +60,9 @@ static t_tab		*logic_u(t_tab *tab, unsigned int num, int length, int flag)
 
 t_tab				*print_u(t_tab *tab)
 {
-	int						length;
-	int						flag;
-	unsigned int		num;
+	int				length;
+	int				flag;
+	unsigned int	num;
 
 	flag = 0;
 	num = (unsigned int)(va_arg(tab->args, unsigned int));

@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dbalboa- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/01/28 20:34:21 by dbalboa-          #+#    #+#             */
-/*   Updated: 2020/01/28 20:34:21 by dbalboa-         ###   ########.fr       */
+/*   Created: 2020/01/30 20:11:49 by dbalboa-          #+#    #+#             */
+/*   Updated: 2020/01/30 20:12:38 by dbalboa-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,29 +38,28 @@ typedef struct	s_tab
 	char		flags[5];
 }				t_tab;
 
-t_tab		*iniciar(t_tab *tab);
-int			escribir(t_tab *tab);
-int			ft_printf(const char *format, ...);
+t_tab			*iniciar(t_tab *tab);
+int				escribir(t_tab *tab);
+int				ft_printf(const char *format, ...);
 
-t_tab		*searchident(t_tab *tab);
-t_tab		*selectflag(t_tab *tab);
+t_tab			*searchident(t_tab *tab);
+t_tab			*selectflag(t_tab *tab);
 
-int			tratar(t_tab *tab);
-t_tab		*select_print(t_tab *tab);
-t_tab		*reiniciar(t_tab *tab);
+int				tratar(t_tab *tab);
+t_tab			*select_print(t_tab *tab);
+t_tab			*reiniciar(t_tab *tab);
 
-t_tab		*searchprecision(t_tab *tab);
-t_tab		*searchwide(t_tab *tab);
-t_tab		*searchflag(t_tab *tab);
+t_tab			*searchprecision(t_tab *tab);
+t_tab			*searchwide(t_tab *tab);
+t_tab			*searchflag(t_tab *tab);
 
+t_tab			*print_c(t_tab *tab);
+t_tab			*print_s(t_tab *tab);
+t_tab			*print_d(t_tab *tab);
+t_tab			*print_u(t_tab *tab);
+t_tab			*print_x(t_tab *tab);
+t_tab			*print_p(t_tab *tab);
 
-t_tab		*print_c(t_tab *tab);
-t_tab		*print_s(t_tab *tab);
-t_tab		*print_d(t_tab *tab);
-t_tab		*print_u(t_tab *tab);
-t_tab		*print_x(t_tab *tab);
-t_tab		*print_p(t_tab *tab);
-
-void		print_aux(t_tab *tab, char c, int len, int update_len);
+void			print_aux(t_tab *tab, char c, int len, int update_len);
 
 #endif
