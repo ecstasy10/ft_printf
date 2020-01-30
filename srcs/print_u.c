@@ -6,16 +6,16 @@
 /*   By: dbalboa- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/11 20:44:38 by hbarrius          #+#    #+#             */
-/*   Updated: 2020/01/28 20:51:20 by dbalboa-         ###   ########.fr       */
+/*   Updated: 2020/01/30 17:13:07 by dbalboa-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include <string.h>
 
-static int			get_tens(int num)
+static int			get_tens(unsigned int num)
 {
-	int tens;
+	unsigned int tens;
 
 	tens = 1;
 	while ((num /= 10) > 0)
@@ -23,7 +23,25 @@ static int			get_tens(int num)
 	return (tens);
 }
 
-static t_tab		*logic_u(t_tab *tab, long int num, int length, int flag)
+
+void	ft_putuns_fd(unsigned int nb, int fd)
+{
+	unsigned int	nbr;
+
+	if (nb < 0)
+	{
+		ft_putchar_fd('-', fd);
+		nbr = (unsigned int)(nb * -1);
+	}
+	else
+		nbr = (unsigned int)nb;
+	if (nbr >= 10)
+		ft_putnbr_fd(nbr / 10, fd);
+	ft_putchar_fd((char)(nbr % 10 + 48), fd);
+}
+
+
+static t_tab		*logic_u(t_tab *tab, unsigned int num, int length, int flag)
 {
 	int			not_blank;
 
@@ -36,7 +54,7 @@ static t_tab		*logic_u(t_tab *tab, long int num, int length, int flag)
 	if (tab->flags[2] == '0' && tab->precision < 0)
 		print_aux(tab, '0', tab->wide - not_blank, 0);
 	print_aux(tab, '0', tab->precision - length, 0);
-	ft_putnbr_fd(num, 1);
+	ft_putuns_fd(num, 1);
 	if (flag)
 		print_aux(tab, ' ', tab->wide - not_blank, 0);
 	return (tab);
@@ -46,16 +64,10 @@ t_tab				*print_u(t_tab *tab)
 {
 	int						length;
 	int						flag;
-	unsigned long int		num;
+	unsigned int		num;
 
 	flag = 0;
-	num = (unsigned long int)(va_arg(tab->args, unsigned long int));
-	if (num == 2147483648)
-	{
-		write(1, "2147483648", 10);
-		tab->len = 10;
-		return (tab);
-	}
+	num = (unsigned int)(va_arg(tab->args, unsigned int));
 	if (num == 0 && tab->precision == 0)
 	{
 		print_aux(tab, ' ', tab->wide, 1);

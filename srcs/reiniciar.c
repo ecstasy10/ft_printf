@@ -6,7 +6,7 @@
 /*   By: dbalboa- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/28 21:11:13 by dbalboa-          #+#    #+#             */
-/*   Updated: 2020/01/28 21:11:21 by dbalboa-         ###   ########.fr       */
+/*   Updated: 2020/01/30 16:05:52 by dbalboa-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 t_tab	*reiniciar(t_tab *tab)
 {
-	tab->flag_ident = '\0';
+	tab->flag_ident = 'q';
 	tab->flag_aux = '\0';
 	tab->wide = 0;
 	return (tab);

@@ -6,7 +6,7 @@
 /*   By: dbalboa- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/28 21:10:59 by dbalboa-          #+#    #+#             */
-/*   Updated: 2020/01/28 21:11:00 by dbalboa-         ###   ########.fr       */
+/*   Updated: 2020/01/30 17:35:29 by dbalboa-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,20 @@ static int		aux(t_tab *tab, int num, char *str, int num_w)
 	return (num_w);
 }
 
-static t_tab	*logic_x(t_tab *tab, int num, char *str, int align)
+void	ft_putstr_fd(char *s, int fd)
+{
+	int i;
+
+	i = 0;
+	while (s[i])
+	{
+		write(fd, &s[i], 1);
+		i++;
+	}
+}
+
+
+static t_tab	*logic_x(t_tab *tab, unsigned int num, char *str, int align)
 {
 	int num_b;
 	int num_w;
@@ -65,11 +78,11 @@ t_tab			*print_x(t_tab *tab)
 {
 	char	*str;
 	char	c;
-	int		num;
+	unsigned int		num;
 	int		align;
 
 	align = 0;
-	num = (int)(va_arg(tab->args, int));
+	num = (unsigned int)(va_arg(tab->args, unsigned int));
 	if (num == 0 && tab->precision == 0)
 	{
 		print_aux(tab, ' ', tab->wide, 1);

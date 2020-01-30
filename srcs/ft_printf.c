@@ -6,7 +6,7 @@
 /*   By: dbalboa- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/28 20:30:08 by dbalboa-          #+#    #+#             */
-/*   Updated: 2020/01/28 23:13:32 by dbalboa-         ###   ########.fr       */
+/*   Updated: 2020/01/30 16:09:59 by dbalboa-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int		escribir(t_tab *tab)
 		{
 			reiniciar(tab);
 			tratar(tab);
-			if ( tab->flag_ident == 'q' && !va_arg(tab->args, int))
+			if (tab->flag_ident == 'q' && !va_arg(tab->args, int))
 				return (0);
 		}
 		else
